@@ -1,0 +1,22 @@
+#Objective: To create an insulation calculator according the sq ft of certain insulation
+# define the variables that will be used in the calculator
+# create input statements and ask the user for sq ft of walls,ceilings and wide ceilings. 
+#divide the user input by the insulation sq ft; r21 r38 and r3822(The wide 38s are a lil larger)
+# Using F Strings print the toal bags needed for ceilings, walls and wide ceilings
+
+print("Welcome to the Insulation Estimate Calculator!")
+walls = float(input("Whats the sq ft of the walls?"))
+ceilings = float(input("Whats the sq ft of the ceiling?"))
+wideCeilings = float(input("Whats the sq ft of the wide ceiling"))
+#Is an if statement the right function to use here? I want to compare the user input(str) to the 2 options that im giving the user.
+#lets switch this up a lil bit
+r21 = 67.81
+r3815 = 42.67
+r3822 = 64
+wSqft = walls/r21
+cSqft = ceilings/r3815
+widecSqft = wideCeilings/r3822
+print(f"You're total bags needed for walls is {wSqft}.")
+print(f"You're total bags needed for Ceilings is {cSqft}.")
+print(f"You're total bags needed for WIDE Ceilings is {widecSqft}.")
+
