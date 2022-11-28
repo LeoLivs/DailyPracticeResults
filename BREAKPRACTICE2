@@ -1,0 +1,13 @@
+#Obj: To practice for loops, nested loops and break statements
+
+#task 1: define a list of 3 numbers
+#task 2: create a for loop to excute every number in that list
+
+list = [10,20,30,40,50]
+
+for x in list:
+    if x>30:
+        break
+    else:
+        print(x)
+#success
