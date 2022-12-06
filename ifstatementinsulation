@@ -1,0 +1,55 @@
+
+print("Welcome to the Insulation Estimate Calculator!")
+
+walls = float(input("Whats the sq ft of the walls?"))
+typewall = input("what type of insulation are youusing?")
+wideWalls = float(input("Whats the sq ft of the wide walls?"))
+ceilings = float(input("Whats the sq ft of the ceiling?"))
+wideCeilings = float(input("Whats the sq ft of the wide ceiling"))
+#Is an if statement the right function to use here? I want to compare the user input(str) to the 2 options that im giving the user.
+#lets switch this up a lil
+'''OBJ:i want to ask the user what type of insulation they're using in what situation.would that be conditional?
+example: are you using the r13s for walls or ceilings then indicate the answer and keep the r13 numbers
+seperate from the rest. '''
+
+
+r21 = 67.81
+r2122 = 103.97
+r3815 = 42.67
+r3822 = 64
+r13= 106.56    
+wSqft = walls/r21
+wideWsqft = wideWalls/ r2122
+cSqft = ceilings/r3815
+widecSqft = wideCeilings/r3822
+
+if typewall == r21:
+    wSqft = walls/r21
+    print(wSqft)
+elif typewall == r13:
+    pass
+print(f"You're total bags needed for walls is {wSqft}.")
+print(f"You're total bags needed for WIDE walls is {wideWsqft}.")
+print(f"You're total bags needed for Ceilings is {cSqft}.")
+print(f"You're total bags needed for WIDE Ceilings is {widecSqft}.")
+marketPriceWalls = float(input("What's the current market price of 15in WIDE R21s?"))
+marketPricewideWalls = float(input("What's the current market price of 24in WIDE R21s?"))
+marketPriceCeilings = float(input("What's the current market price of 15in WIDE R38s?"))
+marketPricewideCeilings = float(input("What's the current market price of 24in WIDE R38s?"))
+
+finalWallPrice = marketPriceWalls * wSqft
+
+finalWideWallPrice = marketPricewideWalls * wideWsqft
+
+finalCeilingPrice = marketPriceCeilings * cSqft
+
+finalWideCeilingPrice = marketPricewideCeilings * widecSqft
+
+print(f"You're total price for 15 inch R21 is {finalWallPrice}")
+
+print(f"You're total price for 24 inch R21 is {finalWideWallPrice}")
+
+print(f"You're total price for 15 inch R38 is {finalCeilingPrice}")
+
+print(f"You're total price for 24 inch R38 is {finalWideCeilingPrice}")
+
