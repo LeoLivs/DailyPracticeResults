@@ -1,0 +1,39 @@
+#Objective: To have the user input numbers after asking various questions regarding constuction
+# print all inputs thru type casting.
+# print total along with GCfee
+#bonus Utilize the f string to make it easier 
+demo = int(input("How much is Demo going to Cost?"))
+wood = int(input("How much is framing going to cost?"))
+masonry = int(input("how much is masonry going to cost?"))
+hvac = int(input("How much for hvac?"))
+plumbing = int(input("How much for plumbing?"))
+electric = int(input("How much for Electrical?"))
+roof = int(input("How much for roofing and siding?"))
+paint = int(input("how much for paint? (think interior and exterior)"))
+insulation = int(input("how much for insulation ands fireblocking?"))
+drywall = int(input(" How much for drywall?"))
+trimwork = int(input(" How much will finish carpentry be? (Doors Floors Trim cabinet install and windows)"))
+permits = int(input("How much will permits?"))
+subtotal = demo + wood + masonry + hvac + plumbing + electric + roof + paint + insulation + drywall + trimwork + permits 
+contingency = float(subtotal * .15)
+total = subtotal + contingency
+gcFee = total * .20 
+grandTotal = total + gcFee
+""" How do i display the number again?"""
+#print(" This is the demo price: $" + demo)
+print(f"Your Demo fee is $" + str(demo))
+print(f"Your Framing fee is $" + str(wood))
+print(f"Your Masonry fee is $" + str(masonry))
+print(f"Your hvac fee is $" + str(hvac))
+print(f"Your plumbing fee is $ " + str(plumbing))
+print(f"Your electric fee is $" + str(electric))
+print(f"Your roof fee is $" + str(roof))
+print(f"Your paint fee is $" + str(paint))
+print(f"Your insulation fee is $" + str(insulation))
+print(f"Your drywall fee is $" + str(drywall))
+print(f"Your trimwork fee is $" + str(trimwork))
+print(f"Your permits fee is $" + str(permits))
+print(f"Your contingency fee is $" + str(contingency))
+print(f"Your subtotal fee is $" + str(total))
+print(f"Your GC fee is $" + str(gcFee))
+print(f"Your Final Estimate is $" + str(grandTotal))
