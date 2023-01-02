@@ -12,9 +12,13 @@ roof = int(input("How much for roofing and siding?"))
 paint = int(input("how much for paint? (think interior and exterior)"))
 insulation = int(input("how much for insulation ands fireblocking?"))
 drywall = int(input(" How much for drywall?"))
-trimwork = int(input(" How much will finish carpentry be? (Doors Floors Trim cabinet install and windows)"))
+trimwork = int(input(" How much will finish carpentry be? (Doors/Trim)"))
+windows = int(input(" How much will windows be?"))
+floors = int(input(" How much will floors be?"))
+cabtops = int(input(" How much will cabinets and countertops be?"))
 permits = int(input("How much will permits?"))
-subtotal = demo + wood + masonry + hvac + plumbing + electric + roof + paint + insulation + drywall + trimwork + permits 
+subtotal = demo + wood + masonry + hvac + plumbing + electric + roof + paint + insulation + drywall + trimwork + windows + floors + cabtops + permits 
+
 contingency = float(subtotal * .15)
 total = subtotal + contingency
 gcFee = total * .20 
@@ -32,6 +36,9 @@ print(f"Your paint fee is $" + str(paint))
 print(f"Your insulation fee is $" + str(insulation))
 print(f"Your drywall fee is $" + str(drywall))
 print(f"Your trimwork fee is $" + str(trimwork))
+print(f"Your windows fee is $" + str(windows))
+print(f"Your floors fee is $" + str(floors))
+print(f"Your Cabinets-countertop fee is $" + str(cabtops))
 print(f"Your permits fee is $" + str(permits))
 print(f"Your contingency fee is $" + str(contingency))
 print(f"Your subtotal fee is $" + str(total))
