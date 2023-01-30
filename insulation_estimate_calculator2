@@ -1,42 +1,89 @@
 
 print("Welcome to the Insulation Estimate Calculator!")
-
 walls = float(input("Whats the sq ft of the walls?"))
-wideWalls = float(input("Whats the sq ft of the wide walls?"))
-ceilings = float(input("Whats the sq ft of the ceiling?"))
-wideCeilings = float(input("Whats the sq ft of the wide ceiling"))
+wideCeilings = 0 
+result2 = (input("True or False :There are wide ceilings in the property.").lower() ==  "true")
+if result2 is True: 
+    wideCeilings = float(input("Whats the sq ft of the wide ceiling"))
+    ceilings = float(input("Whats the sq ft of the ceiling?"))
+else:
+    ceilings = float(input("Whats the sq ft of the ceiling?"))
+
+firstCeiling = 0
+firstNbasement = (input("True or False. R13 Insulatation is needed for this project") .lower() == "true")
+if firstNbasement is True:
+    firstCeiling = float(input("What's the sq ft of r13 needed for Interior ceilings and/ or basement walls?"))
+else:
+    pass
+    
 #Is an if statement the right function to use here? I want to compare the user input(str) to the 2 options that im giving the user.
 #lets switch this up a lil bit
+
+
+
 r21 = 67.81
-r2122 = 103.97
 r3815 = 42.67
 r3822 = 64
+r13 = 116.25
+
 wSqft = walls/r21
-wideWsqft = wideWalls/ r2122
 cSqft = ceilings/r3815
 widecSqft = wideCeilings/r3822
+ceiling1stBase = firstCeiling/r13
+#r13Required = 
 print(f"You're total bags needed for walls is {wSqft}.")
-print(f"You're total bags needed for walls is {wideWsqft}.")
 print(f"You're total bags needed for Ceilings is {cSqft}.")
 print(f"You're total bags needed for WIDE Ceilings is {widecSqft}.")
-marketPriceWalls = float(input("What's the current market price of 15in WIDE R21s?"))
-marketPricewideWalls = float(input("What's the current market price of 24in WIDE R21s?"))
-marketPriceCeilings = float(input("What's the current market price of 15in WIDE R38s?"))
+print(f"You're total bags needed for Interior Ceilings/Basement walls is {ceiling1stBase}.")
+
+
+marketPriceWalls = float(input("What's the current market price of 15in R21s?"))
+marketPriceCeilings = float(input("What's the current market price of 15in R38s?"))
 marketPricewideCeilings = float(input("What's the current market price of 24in WIDE R38s?"))
+marketPriceR13 = float(input("What's the current market price of R13s?"))
 
-finalWallPrice = marketPriceWalls * wSqft
+discountWsqft = 0
+discountcSqft = 0
+discountwidecSqft = 0 
+discountCeiling1stBase = 0
+discount1 = 33
+discount2 = 35
+discount3 = 35
+discount4 = 33
+if wSqft >= 15:
+    discountWsqft = marketPriceWalls * (discount1/100)
+    
+#i have to find the right formula to display the discounted price 
+else:
+    pass
+if cSqft  >= 15:
+    discountcSqft = marketPriceCeilings * (discount2/100)
+else: pass 
+if widecSqft >= 15:
+    discountwidecSqft = marketPricewideCeilings * (discount3/100)
+else:
+    pass
+if ceiling1stBase >= 15:
+    discountCeiling1stBase = marketPriceR13 * (discount4/100)
+else:
+    pass
+finalWallPrice = wSqft * (marketPriceWalls - discountWsqft)
 
-finalWideWallPrice = marketPricewideWalls * wideWsqft
+finalCeilingPrice = cSqft * (marketPriceCeilings - discountcSqft)
 
-finalCeilingPrice = marketPriceCeilings * cSqft
+finalWideCeilingPrice = widecSqft *  (marketPricewideCeilings - discountwidecSqft)
 
-finalWideCeilingPrice = marketPricewideCeilings * widecSqft
+finalR13price = ceiling1stBase * (marketPriceR13 - discountCeiling1stBase)
 
 print(f"You're total price for 15 inch R21 is {finalWallPrice}")
-
-print(f"You're total price for 24 inch R21 is {finalWideWallPrice}")
 
 print(f"You're total price for 15 inch R38 is {finalCeilingPrice}")
 
 print(f"You're total price for 24 inch R38 is {finalWideCeilingPrice}")
+
+print(f"You're total price for r13 is {finalR13price}")
+
+totalPrice = finalR13price + finalWideCeilingPrice + finalCeilingPrice + finalWallPrice
+
+print(f"You're estimated price for material w/o tax is {totalPrice}") 
 
