@@ -1,39 +1,23 @@
-#Objective: To have the user input numbers after asking various questions regarding constuction
-# print all inputs thru type casting.
-# print total along with GCfee
-#bonus Utilize the f string to make it easier 
+costs = {}
+tasks = ["Demo", "Framing", "Masonry", "HVAC", "Plumbing", "Electrical",
+         "Roofing and Siding", "Paint", "Insulation and Fireblocking", "Drywall",
+         "Finish Carpentry", "Windows", "Floors", "Cabinets and Countertops", "Permits"]
 
-construction = ['Demo', 'wood','masonry','hvac','plumbing','electric','roof','paint','insulation','drywall','trimwork','windows','floors','cabtops','permits']
-
-
-for x in construction:
-	print(int(input(f"How much is {x} going to Cost?")))
-	#print(x +' team')
-#added a for loop to shorten the code
-subtotal = demo + wood + masonry + hvac + plumbing + electric + roof + paint + insulation + drywall + trimwork + windows + floors + cabtops + permits 
-
-contingency = float(subtotal * .15)
-total = subtotal + contingency
+for task in tasks:
+    cost = int(input(f"How much is {task} going to cost?"))
+    costs[task] = cost
+''' to add tax i have to mulitiply the tax rate (.08) by the subtotal then add
+to create the subtotal''' 
+pretotal  = sum(costs.values()) 
+tax = pretotal * .08
+subtotal = pretotal + tax
+contingency = subtotal * .15
+total = subtotal + contingency 
 gcFee = total * .20 
 grandTotal = total + gcFee
-""" How do i display the number again?"""
-#print(" This is the demo price: $" + demo)
-print(f"Your Demo fee is $" + str(demo))
-print(f"Your Framing fee is $" + str(wood))
-print(f"Your Masonry fee is $" + str(masonry))
-print(f"Your hvac fee is $" + str(hvac))
-print(f"Your plumbing fee is $ " + str(plumbing))
-print(f"Your electric fee is $" + str(electric))
-print(f"Your roof fee is $" + str(roof))
-print(f"Your paint fee is $" + str(paint))
-print(f"Your insulation fee is $" + str(insulation))
-print(f"Your drywall fee is $" + str(drywall))
-print(f"Your trimwork fee is $" + str(trimwork))
-print(f"Your windows fee is $" + str(windows))
-print(f"Your floors fee is $" + str(floors))
-print(f"Your Cabinets-countertop fee is $" + str(cabtops))
-print(f"Your permits fee is $" + str(permits))
+
+print(f"Your subtotal fee is $" + str(subtotal))
 print(f"Your contingency fee is $" + str(contingency))
-print(f"Your subtotal fee is $" + str(total))
 print(f"Your GC fee is $" + str(gcFee))
 print(f"Your Final Estimate is $" + str(grandTotal))
+
